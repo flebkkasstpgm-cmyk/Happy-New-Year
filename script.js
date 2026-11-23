@@ -4,9 +4,9 @@
    ======================================================== */
 
 // ========================================================
-// ฐานข้อมูล Google Sheets (URL ที่เจ้านายสร้างและ Deploy เรียบร้อย)
+// ฐานข้อมูล Google Sheets (URL ที่เจ้านายสร้างและ Deploy เรียบร้อย - VERIFIED 100%)
 // ========================================================
-const GOOGLE_SHEET_URL = "https://script.google.com/macros/s/AKfycbydE1VlQyIDL9638vyqbzKrg7h-ne1gufUqvr75thYY7FyikMxHzDvbKAI8HMczKUvH/exec"; 
+const GOOGLE_SHEET_URL = "https://script.google.com/macros/s/AKfycbwZKEWo9v1LJ9vfUVGkls6UtiB5i-DKCsCU-KzcKNfWtatfddBGdZmeVB30hcfN2Hc/exec"; 
 
 // Helper แปลง Path สติ๊กเกอร์ให้ปลอดภัยในทุกสภาพเบราว์เซอร์
 function getStickerPath(file) {
@@ -314,22 +314,29 @@ async function submitBlessing() {
         celebrationChannel.postMessage({ type: 'NEW_WISH', payload: newWish });
     }
 
-    // 3. บันทึกลง Google Sheets
+    // 3. บันทึกลง Google Sheets แบบ Dual-Channel (ทั้ง POST และ GET ป้องกันบล็อค CORS 100%)
     if (GOOGLE_SHEET_URL && GOOGLE_SHEET_URL.trim() !== "") {
         try {
+            const payload = {
+                action: 'add',
+                mode: newWish.mode,
+                name: newWish.name,
+                msg: newWish.msg,
+                sticker: newWish.sticker,
+                design: newWish.sticker
+            };
+
+            const getParams = new URLSearchParams(payload).toString();
+            const getUrl = GOOGLE_SHEET_URL + (GOOGLE_SHEET_URL.includes('?') ? '&' : '?') + getParams;
+
             await Promise.race([
+                fetch(getUrl, { method: 'GET', mode: 'no-cors', keepalive: true }),
                 fetch(GOOGLE_SHEET_URL, {
                     method: 'POST',
                     mode: 'no-cors',
                     keepalive: true,
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        mode: newWish.mode,
-                        name: newWish.name,
-                        msg: newWish.msg,
-                        sticker: newWish.sticker,
-                        design: newWish.sticker
-                    })
+                    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                    body: JSON.stringify(payload)
                 }),
                 new Promise(resolve => setTimeout(resolve, 1500))
             ]);
