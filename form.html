@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>กรอกคำอวยพรปีใหม่ 2027 - ส่งคำอวยพรออนไลน์</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body id="form-page">
+    <div class="background"></div>
+    <div class="background-overlay"></div>
+    <div class="sky-layer" id="sky-layer"></div>
+
+    <div class="container form-container">
+        <a href="index.html" class="close-btn" title="ย้อนกลับ">&times;</a>
+
+        <div class="badge-festive">✨ สุขสันต์วันปีใหม่ 2027 ✨</div>
+        <h1 class="main-title" id="form-page-title" style="font-size: 1.55rem;">ส่งคำอวยพรปีใหม่</h1>
+
+        <!-- Sticker Grid -->
+        <div class="section-label">
+            <span>🎨 เลือกสติ๊กเกอร์อวยพร (17 แบบ):</span>
+            <small>แตะเพื่อเลือก</small>
+        </div>
+        <div class="sticker-grid" id="sticker-grid">
+            <!-- Populated via script.js -->
+        </div>
+
+        <!-- Quick Blessing Chips -->
+        <div class="section-label">
+            <span>💡 คำอวยพรยอดนิยม:</span>
+            <small>แตะเพื่อใส่ข้อความทันที</small>
+        </div>
+        <div class="chips-container">
+            <button type="button" class="chip-btn" onclick="insertBlessing('สุขสันต์วันปีใหม่ 2027 ขอให้มีความสุข สุขภาพแข็งแรง ร่ำรวยเงินทอง 🎉')">🎉 สุขสันต์วันปีใหม่ 2027</button>
+            <button type="button" class="chip-btn" onclick="insertBlessing('สวัสดีปีใหม่ ขอให้การงานรุ่งเรือง ก้าวหน้า ค้าขายร่ำรวย 💰')">💰 การงานรุ่งเรือง ค้าขายร่ำรวย</button>
+            <button type="button" class="chip-btn" onclick="insertBlessing('ขอให้ปีใหม่นี้นำพาความสุข สมปรารถนา สุขภาพดีตลอดปี 🌟')">🌟 สมปรารถนา สุขภาพแข็งแรง</button>
+            <button type="button" class="chip-btn" onclick="insertBlessing('ขอให้เป็นปีทองของทุกคน เฮงๆ ปังๆ โชคดีตลอดปี ✨')">✨ เฮงๆ ปังๆ โชคดีตลอดปี</button>
+            <button type="button" class="chip-btn" onclick="insertBlessing('Happy New Year 2027! Wishing you peace, joy and success 🎊')">🎊 Happy New Year 2027</button>
+        </div>
+
+        <!-- Inputs -->
+        <div class="section-label"><span>👤 ชื่อของคุณ / แผนก:</span></div>
+        <input type="text" id="user-name" class="form-input" placeholder="เช่น คุณสมชาย, ทีม IT, ครอบครัวใจดี" maxlength="30" required>
+
+        <div class="section-label"><span>✍️ ข้อความคำอวยพร:</span></div>
+        <textarea id="user-msg" class="form-textarea" placeholder="พิมพ์ข้อความคำอวยพรของคุณที่นี่..." rows="3" maxlength="120" required></textarea>
+
+        <button type="button" class="btn btn-gold" onclick="submitBlessing()">
+            <span>✨</span> ส่งคำอวยพรฉลองปีใหม่ <span>✨</span>
+        </button>
+
+        <div style="margin-top: 10px; display: flex; justify-content: space-between;">
+            <a href="index.html" class="btn-link">← กลับหน้าแรก</a>
+            <a href="animation.html" class="btn-link" style="color: var(--festive-gold);">เข้าชมหน้าจอสด →</a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

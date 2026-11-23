@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>หน้าจอเฉลิมฉลองปีใหม่ 2027 - Live Celebration Screen</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="qrcode.min.js"></script>
+</head>
+<body id="animation-page">
+    <div class="background"></div>
+    <div class="background-overlay"></div>
+    <div class="sky-layer" id="sky-layer"></div>
+
+    <!-- HUD Header Left -->
+    <div class="hud-header">
+        <div class="hud-title-badge">
+            <span style="font-size: 1.3rem;">🎉</span>
+            <h2>สุขสันต์วันปีใหม่ 2027</h2>
+            <span class="wish-counter-pill" id="wish-counter-badge">0 คำอวยพร</span>
+        </div>
+    </div>
+
+    <!-- QR Corner Right -->
+    <div class="qr-corner">
+        <p>สแกนเพื่อร่วมส่งคำอวยพร</p>
+        <div class="qr-box-inner" id="corner-qrcode"></div>
+    </div>
+
+    <!-- Celebration Live Stage for Floating Objects & Fireworks -->
+    <div id="celebration-stage"></div>
+
+    <!-- HUD Controls Bottom Right -->
+    <div class="hud-controls">
+        <button class="ctrl-btn" id="sound-toggle-btn" onclick="toggleSound()" title="เปิด/ปิดเสียง">🔊</button>
+        <button class="ctrl-btn" onclick="toggleFullScreen()" title="เต็มจอ">⛶</button>
+        <a href="form.html" class="btn-add-wish">
+            <span>✨</span> ส่งคำอวยพรเพิ่ม
+        </a>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

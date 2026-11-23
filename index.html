@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>สุขสันต์วันปีใหม่ 2027 - ส่งคำอวยพรออนไลน์</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="qrcode.min.js"></script>
+</head>
+<body>
+    <div class="background"></div>
+    <div class="background-overlay"></div>
+    <div class="sky-layer" id="sky-layer"></div>
+
+    <div class="container">
+        <div class="badge-festive">✨ เทศกาลเฉลิมฉลองปีใหม่ 2027 ✨</div>
+        <h1 class="main-title">สุขสันต์วันปีใหม่<br>ส่งคำอวยพรออนไลน์</h1>
+        <p class="sub-title">สแกน QR Code ด้วยมือถือ หรือคลิกปุ่มเพื่อร่วมส่งคำอวยพรฉลองปีใหม่</p>
+
+        <div class="qr-wrapper">
+            <div id="landing-qrcode"></div>
+        </div>
+
+        <a href="form.html" class="btn btn-gold">
+            <span>✨</span> ร่วมส่งคำอวยพรปีใหม่
+        </a>
+
+        <a href="animation.html" class="btn btn-secondary">
+            <span>🎆</span> ชมหน้าจอสดเฉลิมฉลอง (Live Screen)
+        </a>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        window.addEventListener('load', () => {
+            renderQrCode('landing-qrcode', getMobileSelectUrl(), 170);
+        });
+    </script>
+</body>
+</html>
